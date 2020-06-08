@@ -5,13 +5,15 @@
 </p>
 
 ---
-
+<div align="center">
+  
 ![](https://img.shields.io/github/stars/SYS113/CGT.svg)
 ![](https://img.shields.io/github/forks/SYS113/CGT.svg)
 ![](https://img.shields.io/github/release/SYS113/CGT.svg)
 ![](https://img.shields.io/github/issues/SYS113/CGT.svg)
 ![](https://img.shields.io/badge/license-GPL3-informational.svg)
 ![](https://img.shields.io/badge/language-python-orange.svg)
+</div>
 
 ---
 
@@ -49,7 +51,7 @@
 > ---
 > ## *donate* 
 > > *You can donate <ins>CGT</ins> using the following method ...*
-> > > * *for <ins>iranian</ins> users &nbsp; :  &nbsp;&nbsp; <ins>meli bank</ins> &nbsp;&nbsp;&nbsp; - &nbsp; 6037 9975 7621 6759*
+> > > * *for <ins>iranian</ins> users &nbsp; :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <ins>idpay</ins> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; https://idpay.ir/sys113*
 > > > * *for <ins>global</ins> users &nbsp; : &nbsp;<ins>BTC wallet id</ins>&nbsp; - &nbsp; 149JgUmFqG6MvFg79Ldrvdk2bN35ByhMuw*
 ---
 > ## *the last word* 
