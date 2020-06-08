@@ -1,0 +1,17 @@
+- 0.1.0
+
+	* multi language
+		* support english and persian language
+
+	* convert .img.lz4 to .img
+
+	* unpack/repack boot or recovery
+		* supported .img , .img.lz4 , .tar , .tar.md5 file type
+
+	* bypass screenlock samsung devices - method 1
+		* need current boot image from samsung device
+			* not work if frp , oem , crom , reactivition lock is enabled
+				* supported .img , .img.lz4 , .tar , .tar.md5 file type
+
+	* make imei and save to a file
+		* supported set defult value for imei range
