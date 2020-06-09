@@ -45,7 +45,7 @@ def windows():
 				latest_version = get('https://raw.githubusercontent.com/sys113/CGT-dependencies/master/VERSION').text
 				if latest_version > curent_version:
 					if latest_version > CGT_VERSION:
-						return c.BLUE+'version '+c.RED+latest_version+c.BLUE+' released'+c.GREEN+' : '+c.RED+'https://github.com/SYS113/CGT/releases'
+						print(c.BLUE+'version '+c.RED+latest_version+c.BLUE+' released'+c.GREEN+' : '+c.RED+'https://github.com/SYS113/CGT/releases')
 						print(line())
 				else:
 					pass
@@ -59,28 +59,6 @@ def windows():
 					if latest_version > CGT_VERSION:
 						print(c.BLUE+'noskhe '+c.RED+latest_version+c.BLUE+' montasher shod'+c.GREEN+' : '+c.RED+'https://github.com/SYS113/CGT/releases')
 						print(line())
-						return 'hi'
-				else:
-					pass
-			except:
-				pass
-	elif not isfile(home + '\\.CGT\\files\\VERSION'):
-		if _language != 'TEHRAN':
-			try:
-				latest_version = get('https://raw.githubusercontent.com/sys113/CGT-dependencies/master/VERSION').text
-				if latest_version > CGT_VERSION:
-					return c.BLUE+'version '+c.RED+latest_version+c.BLUE+' released'+c.GREEN+' : '+c.RED+'https://github.com/SYS113/CGT/releases'
-					print(line())
-				else:
-					pass
-			except:
-				pass
-		elif _language == 'TEHRAN':
-			try:
-				latest_version = get('https://raw.githubusercontent.com/sys113/CGT-dependencies/master/VERSION').text
-				if latest_version > CGT_VERSION:
-					return c.BLUE+'noskhe '+c.RED+latest_version+c.BLUE+' montasher shod'+c.GREEN+' : '+c.RED+'https://github.com/SYS113/CGT/releases'
-					print(line())
 				else:
 					pass
 			except:
@@ -88,7 +66,7 @@ def windows():
 
 def notification():
 	if os_type().upper() == 'WINDOWS':
-		a = loading(function=windows())
+		a = loading(function=windows)
 	elif os_type().upper() == 'LINUX':
 		linux()
 	else:
