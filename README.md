@@ -21,15 +21,35 @@
 > * *The <ins>CGT</ins> name is derived from <ins>**C**li**G**sm**T**ool</ins>.<br />*
 > * *<ins>CGT</ins> is a tool <ins>free</ins> , <ins>open source</ins>  , <ins>multi language</ins> , <ins>cross platform(comming soon)</ins> and <ins>command line based</ins> for <ins>mobile phone</ins> repairs.*
 ---
+> ## *features*
+> * multi language
+> 	* support english and persian language
+
+> * convert .img.lz4 to .img
+
+> * unpack/repack boot or recovery
+> 	* supported .img , .img.lz4 , .tar , .tar.md5 file type
+
+> * bypass screenlock samsung devices - method 1
+> 	* need current boot image from samsung device
+> 		* not work if frp , oem , crom , reactivition lock is enabled
+> 			* supported .img , .img.lz4 , .tar , .tar.md5 file type
+
+> * make imei and save to a file
+> 	* supported set defult value for imei range
+---
+> ## *download*
+> ![v0.1.0 - windows](https://github.com/sys113/CGT/releases/download/0.1.0/CGT-0.1.0-windows.exe)
+---
 > ## *view*
 <p align="center">
-  <img width="350" height="350" src="https://raw.githubusercontent.com/sys113/CGT-dependencies/master/view.png">
+  <img width="450" height="350" src="https://raw.githubusercontent.com/sys113/CGT-dependencies/master/view.png">
 </p>
 
 ---
 > ## *error list*
 <p align="center">
-  <img width="450" height="450" src="https://raw.githubusercontent.com/sys113/CGT-dependencies/master/ErrorList.png">
+  <img width="950" height="450" src="https://raw.githubusercontent.com/sys113/CGT-dependencies/master/ErrorList.png">
 </p>
 
 ---
