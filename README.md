@@ -27,6 +27,12 @@
 </p>
 
 ---
+> ## *error list*
+<p align="center">
+  <img width="450" height="450" src="https://raw.githubusercontent.com/sys113/CGT-dependencies/master/ErrorList.png">
+</p>
+
+---
 > ## *run <ins>CGT</ins>*
 > *1. git clone https://github.com/sys113/CGT/*<br />
 > *2. cd CGT*<br />
