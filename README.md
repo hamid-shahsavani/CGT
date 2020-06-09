@@ -25,6 +25,7 @@
 <p align="center">
   <img width="350" height="350" src="https://raw.githubusercontent.com/sys113/CGT-dependencies/master/view.png">
 </p>
+
 ---
 > ## *run <ins>CGT</ins>*
 > *1. git clone https://github.com/sys113/CGT/*<br />
