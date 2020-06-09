@@ -38,7 +38,7 @@
 > *2. cd CGT*<br />
 > *3. python3 -m pip install -r REQUIREMENTS*<br />
 > *4. python3 -m pip install pyinstaller*<br />
-> *5. pyinstaller --path=src CGT.py*
+> *5. pyinstaller --onefile --icon=CGT.ico --path=src CGT.py*
 ---
 > ## *copyright*
 > * *copyright <ins>SYS113</ins> - <ins>2019</ins>.*
