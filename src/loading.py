@@ -4,6 +4,7 @@
 
 from os import system
 from platform import system as os_type
+from platform import release as os_release
 from cursor import hide , show
 from sys import stdout
 from subprocess import check_output
@@ -124,12 +125,19 @@ def loading(speed = None , sleep = None , function = None ,args = None , method 
 	command_line_size_method_2 = int(resize)-4
 
 	# colored stars animate functions ...
-
-	class star:
-		blue = '\033[94m'+'*'
-		green = '\033[92m'+'*'
-		red = '\033[91m'+'*'
-		yellow = '\033[33m'+'*'
+	
+	if os_release == '7':
+		class star:
+			blue = '*'
+			green = '*'
+			red = '*'
+			yellow = '*'
+	else:
+		class star:
+			blue = '\033[94m'+'*'
+			green = '\033[92m'+'*'
+			red = '\033[91m'+'*'
+			yellow = '\033[33m'+'*'
 
 	# b == blue , g == green , r == red , y == yellow in animate method 1 comment ...
 
