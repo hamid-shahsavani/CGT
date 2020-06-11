@@ -14,6 +14,7 @@ from shutil import rmtree , move
 from os.path import isdir , isfile , splitext , exists , basename , realpath
 from os import system , chdir , stat , remove , rename , listdir 
 from platform import system as os_type
+from platform import release as os_release
 
 def xinput(s, *args, **kwargs):
     print(s, end='')
@@ -30,18 +31,32 @@ elif os_type().upper() == 'LINUX':
 else:
     pass
 
-class c:
-    MAGENTA = '\033[35m'
-    YELLOW = '\033[33m'
-    CYAN = '\033[36m'
-    BLUE = '\033[94m'
-    DARKCYAN = '\033[96m'
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    GRAY = '\033[90m'
-    BOLD = '\033[1m'
-    WHITE = '\033[37m'
-    END = '\033[0m'
+if os_release() == '7':
+	class c:
+	  MAGENTA = ''
+	  YELLOW = ''
+	  CYAN = ''
+	  BLUE = ''
+	  DARKCYAN = ''
+	  GREEN = ''
+	  RED = ''
+	  GRAY = ''
+	  BOLD = ''
+	  WHITE = ''
+	  END = ''
+else:
+	class c:
+	  MAGENTA = '\033[35m'
+	  YELLOW = '\033[33m'
+	  CYAN = '\033[36m'
+	  BLUE = '\033[94m'
+	  DARKCYAN = '\033[96m'
+	  GREEN = '\033[92m'
+	  RED = '\033[91m'
+	  GRAY = '\033[90m'
+	  BOLD = '\033[1m'
+	  WHITE = '\033[37m'
+	  END = '\033[0m'
 
 def window():
     def compress_repack_directory():
