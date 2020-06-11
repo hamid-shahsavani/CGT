@@ -1,6 +1,7 @@
 # Copyright SYS113 2019. gpl v3.0 license , see readme file.
 
 from platform import system as os_type
+from platform import release as os_release
 from os.path import isfile , isdir
 from pathlib import Path
 from requests import get
@@ -14,14 +15,24 @@ _language = str(get_localzone())
 
 home = (str(Path.home()))
 
-class c:
-	YELLOW = '\033[33m'
-	BLUE = '\033[94m'
-	GREEN = '\033[92m'
-	RED = '\033[91m'
-	CYAN = '\033[36m'
-	BOLD = '\033[1m'
-	END = '\033[0m'
+if os_release() == '7':
+	class c:
+		YELLOW = ''
+		BLUE = ''
+		GREEN = ''
+		RED = ''
+		CYAN = ''
+		BOLD = ''
+		END = ''
+else:
+	class c:
+		YELLOW = '\033[33m'
+		BLUE = '\033[94m'
+		GREEN = '\033[92m'
+		RED = '\033[91m'
+		CYAN = '\033[36m'
+		BOLD = '\033[1m'
+		END = '\033[0m'
 
 def windows():
 	if not isdir(home+'\\.CGT'):
