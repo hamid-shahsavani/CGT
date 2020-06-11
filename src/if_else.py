@@ -2,6 +2,7 @@
 
 from error import error
 from platform import system as os_type
+from platform import release as os_release
 from pathlib import Path
 from os.path import isfile
 
@@ -21,6 +22,19 @@ class c:
 	BLUE = '\033[94m'
 	GREEN = '\033[92m'
 	RED = '\033[91m'
+
+if os_release() == '7':
+	class c:
+		YELLOW = ''
+		BLUE = ''
+		GREEN = ''
+		RED = ''
+else:
+	class c:
+		YELLOW = '\033[33m'
+		BLUE = '\033[94m'
+		GREEN = '\033[92m'
+		RED = '\033[91m'
 
 def if_else():
 	if language == 'EN':
