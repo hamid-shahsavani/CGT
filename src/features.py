@@ -11,7 +11,7 @@ from tzlocal import get_localzone
 from shutil import move
 from re import sub
 
-version = '0.1.0'
+version = '0.1.1'
 
 home = str(Path.home())
 
@@ -48,11 +48,9 @@ else:
 		END = '\033[0m'
 		
 def features():
-	if not isdir(home+'\\.CGT'):
-		if not isfile(home+'\\CITY'):
-			city= open(home+'\\CITY','w')
-			city.write(sub(r'.*/', '', str(get_localzone())).upper())
-			city.close()
+	city= open(home+'\\CITY','w')
+	city.write(sub(r'.*/', '', str(get_localzone())).upper())
+	city.close()
 	if isdir(home+'\\.CGT'):
 		if not isfile(home+'\\.CGT\\files\\CITY'):
 			move(home+'\\CITY',home+'\\.CGT\\files\\CITY')
