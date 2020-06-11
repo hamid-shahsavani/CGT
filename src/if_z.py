@@ -4,6 +4,7 @@ from pathlib import Path
 from time import sleep , strftime
 from os import system , execv , chdir 
 from platform import system as os_type
+from platform import release as os_release
 from os.path import isfile , isdir
 from error import error
 from shutil import move
@@ -21,12 +22,20 @@ elif os_type().upper() == 'LINUX':
 else:
 	pass
 
-class c:
-	BLUE = '\033[94m'
-	GREEN = '\033[92m'
-	RED = '\033[91m'
-	YELLOW = '\033[33m'
-	END = '\033[0m'
+if os_release() == '7':
+	class c:
+		BLUE = ''
+		GREEN = ''
+		RED = ''
+		YELLOW = ''
+		END = ''
+else:
+	class c:
+		BLUE = '\033[94m'
+		GREEN = '\033[92m'
+		RED = '\033[91m'
+		YELLOW = '\033[33m'
+		END = '\033[0m'
 
 def if_z():
 	chdir(open(home+'\\.CGT\\files\\DIR','r').read())
