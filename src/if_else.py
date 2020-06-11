@@ -17,12 +17,6 @@ elif os_type().upper() == 'LINUX':
 else:
 	pass
 
-class c:
-	YELLOW = '\033[33m'
-	BLUE = '\033[94m'
-	GREEN = '\033[92m'
-	RED = '\033[91m'
-
 if os_release() == '7':
 	class c:
 		YELLOW = ''
