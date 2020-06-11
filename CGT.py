@@ -55,7 +55,7 @@ check_new_ver = _run(notification)
 def main():
 	while True:
 		print(line())
-		# check_new_ver() # coming soon ...
+		check_new_ver()
 		send = xinput(c.BLUE+">"+c.GREEN+">"+c.RED+"> "+c.CYAN)
 		if send == 'c':
 			if_c()
