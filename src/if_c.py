@@ -21,14 +21,14 @@ else:
 
 if os_release() == '7':
 	class c:
-        BLUE = ''
-        GREEN = ''
-        RED = ''
+		BLUE = ''
+		GREEN = ''
+		RED = ''
 else:
 	class c:
-        BLUE = '\033[94m'
-        GREEN = '\033[92m'
-        RED = '\033[91m'
+		BLUE = '\033[94m'
+		GREEN = '\033[92m'
+		RED = '\033[91m'
 
 def if_c():
     if language == 'EN':
