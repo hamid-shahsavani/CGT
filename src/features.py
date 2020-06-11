@@ -3,6 +3,7 @@
 from line import line
 from clear import clear
 from platform import system as os_type
+from platform import release as os_release
 from os.path import isfile , isdir
 from pathlib import Path
 from requests import get
@@ -26,16 +27,26 @@ elif os_type().upper() == 'LINUX':
 		version = open(home + '/.CGT/files/VERSION', 'r').read()
 else:
 	pass
-
-class c:
-	YELLOW = '\033[33m'
-	BLUE = '\033[94m'
-	GREEN = '\033[92m'
-	RED = '\033[91m'
-	CYAN = '\033[36m'
-	BOLD = '\033[1m'
-	END = '\033[0m'
-
+	
+if os_release() == '7':
+	class c:
+		YELLOW = ''
+		BLUE = ''
+		GREEN = ''
+		RED = ''
+		CYAN = ''
+		BOLD = ''
+		END = ''
+else:
+	class c:
+		YELLOW = '\033[33m'
+		BLUE = '\033[94m'
+		GREEN = '\033[92m'
+		RED = '\033[91m'
+		CYAN = '\033[36m'
+		BOLD = '\033[1m'
+		END = '\033[0m'
+		
 def features():
 	if not isdir(home+'\\.CGT'):
 		if not isfile(home+'\\CITY'):
