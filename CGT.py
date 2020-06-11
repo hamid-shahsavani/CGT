@@ -1,5 +1,6 @@
 # Copyright SYS113 2019. gpl v3.0 license , see readme file.
 
+from platform import release as os_release
 from sys import path ; path.insert(1, 'src')
 from platform import system as os_type
 from platform import release as os_release
@@ -55,7 +56,10 @@ check_new_ver = _run(notification)
 def main():
 	while True:
 		print(line())
-		check_new_ver()
+		if os_release() == '7':
+			pass
+		else:
+			check_new_ver()
 		send = xinput(c.BLUE+">"+c.GREEN+">"+c.RED+"> "+c.CYAN)
 		if send == 'c':
 			if_c()
@@ -87,3 +91,5 @@ elif os_type().upper() == 'LINUX':
 	xinput('')
 else:
 	pass
+
+
