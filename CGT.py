@@ -2,6 +2,7 @@
 
 from sys import path ; path.insert(1, 'src')
 from platform import system as os_type
+from platform import release as os_release
 from line import line
 from screensize import screensize
 from download import download 
@@ -30,14 +31,24 @@ def _run(f):
     wrapper.has_run = False
     return wrapper
 
-class c:
-	YELLOW = '\033[33m'
-	BLUE = '\033[94m'
-	GREEN = '\033[92m'
-	RED = '\033[91m'
-	CYAN = '\033[36m'
-	BOLD = '\033[1m'
-	END = '\033[0m'
+if os_release() == '7':
+	class c:
+		YELLOW = ''
+		BLUE = ''
+		GREEN = ''
+		RED = ''
+		CYAN = ''
+		BOLD = ''
+		END = ''
+else:
+	class c:
+		YELLOW = '\033[33m'
+		BLUE = '\033[94m'
+		GREEN = '\033[92m'
+		RED = '\033[91m'
+		CYAN = '\033[36m'
+		BOLD = '\033[1m'
+		END = '\033[0m'
 
 check_new_ver = _run(notification) 
 
