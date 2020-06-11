@@ -9,24 +9,39 @@ from pathlib import Path
 from os.path import isdir , isfile , realpath
 from os import chdir , system , remove
 from platform import system as os_type
+from platform import release as os_release
 from time import sleep
 from shutil import rmtree , make_archive
 from zipfile import ZipFile
 
 home = (str(Path.home()))
 
-class c:
-    MAGENTA = '\033[35m'
-    YELLOW = '\033[33m'
-    CYAN = '\033[36m'
-    BLUE = '\033[94m'
-    DARKCYAN = '\033[96m'
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    GRAY = '\033[90m'
-    BOLD = '\033[1m'
-    WHITE = '\033[37m'
-    END = '\033[0m'
+if os_release() == '7':
+	class c:
+	  MAGENTA = ''
+	  YELLOW = ''
+	  CYAN = ''
+	  BLUE = ''
+	  DARKCYAN = ''
+	  GREEN = ''
+	  RED = ''
+	  GRAY = ''
+	  BOLD = ''
+	  WHITE = ''
+	  END = ''
+else:
+	class c:
+	  MAGENTA = '\033[35m'
+	  YELLOW = '\033[33m'
+	  CYAN = '\033[36m'
+	  BLUE = '\033[94m'
+	  DARKCYAN = '\033[96m'
+	  GREEN = '\033[92m'
+	  RED = '\033[91m'
+	  GRAY = '\033[90m'
+	  BOLD = '\033[1m'
+	  WHITE = '\033[37m'
+	  END = '\033[0m'
 
 if os_type().upper() == 'WINDOWS':
     if isfile(home+'\\.CGT\\files\\LANGUAGE'):
