@@ -6,6 +6,7 @@ from time import sleep
 from pathlib import Path
 from os.path import isfile
 from platform import system as os_type
+from platform import release as os_release
 
 home = str(Path.home())
 
@@ -18,10 +19,16 @@ elif os_type().upper() == 'LINUX':
 else:
     pass
 
-class c:
-    BLUE = '\033[94m'
-    GREEN = '\033[92m'
-    RED = '\033[91m'
+if os_release() == '7':
+	class c:
+        BLUE = ''
+        GREEN = ''
+        RED = ''
+else:
+	class c:
+        BLUE = '\033[94m'
+        GREEN = '\033[92m'
+        RED = '\033[91m'
 
 def if_c():
     if language == 'EN':
