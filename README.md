@@ -41,6 +41,7 @@
 > ## *download*
 > ![v0.1.0 - windows](https://github.com/sys113/CGT/releases/download/0.1.0/CGT-0.1.0-windows.exe)
 <br />
+
 > ![v0.1.1 - windows](https://github.com/sys113/CGT/releases/download/0.1.1/CGT-0.1.1-windows.exe)
 ---
 > ## *view*
