@@ -19,6 +19,7 @@ from if_3 import if_3
 from if_4 import if_4
 from if_5 import if_5
 from if_else import if_else
+from sys import argv
 
 def xinput(s, *args, **kwargs):
 	print(s, end='')
@@ -53,6 +54,13 @@ else:
 
 check_new_ver = _run(notification) 
 
+def argument():
+	if len(argv) == 3:
+		if argv[1] == '2':
+			if_2()
+		if argv[1] == '3':
+			if_3()
+			
 def main():
 	while True:
 		print(line())
@@ -81,6 +89,7 @@ def main():
 			if_else()
 
 if os_type().upper() == 'WINDOWS':
+	argument()
 	screensize()
 	features()
 	download()
