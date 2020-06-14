@@ -15,6 +15,7 @@ from os import chdir , listdir , rename , remove , stat , system
 from os.path import isfile , isdir , splitext , basename , exists , realpath
 from platform import system as os_type
 from platform import release as os_release
+from sys import argv
 
 def xinput(s, *args, **kwargs):
     print(s, end='')
@@ -175,10 +176,13 @@ def windows():
         chdir(home + "\\Desktop\\CGT-Files\\2\\")
         make_archive('repack_dependencies', 'zip', 'repack')
     if language == 'FA':
-        print(c.END+c.GREEN+'drag'+c.RED+' & '+c.GREEN +'drop'+c.BLUE+' konid '+c.YELLOW+'boot'+c.RED+' / ' + c.YELLOW+'recovery'+c.RED +' ['+c.GREEN+'.img' + c.RED + '|' + c.GREEN + '.img.lz4'+c.RED+'|'+c.GREEN+'.tar'+c.RED+'|'+c.GREEN+'tar.md5'+c.RED+']'+c.BLUE+' ra va '+c.RED+'klid enter' + c.BLUE+' ra '+c.RED+'befesharid' + c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
-        file = xinput(c.MAGENTA+'> '+c.YELLOW)
-        file = file.replace("\"", "")
-        file = file.replace("\'", "")
+        if len(argv) != 3:
+            print(c.END+c.GREEN+'drag'+c.RED+' & '+c.GREEN +'drop'+c.BLUE+' konid '+c.YELLOW+'boot'+c.RED+' / ' + c.YELLOW+'recovery'+c.RED +' ['+c.GREEN+'.img' + c.RED + '|' + c.GREEN + '.img.lz4'+c.RED+'|'+c.GREEN+'.tar'+c.RED+'|'+c.GREEN+'tar.md5'+c.RED+']'+c.BLUE+' ra va '+c.RED+'klid enter' + c.BLUE+' ra '+c.RED+'befesharid' + c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
+            file = xinput(c.MAGENTA+'> '+c.YELLOW)
+            file = file.replace("\"", "")
+            file = file.replace("\'", "")
+        elif len(argv) == 3:
+            file = argv[2]
         file_name, file_extension = splitext(file)
         if ' ' in file:
             print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'2' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
@@ -197,7 +201,8 @@ def windows():
                                 sleep(1)
                                 print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(5)
-                                return
+                                if len(argv) != 3:
+                                    return
                         else:
                             print(c.RED+'sakht'+c.BLUE+' poshe '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                         system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -219,8 +224,10 @@ def windows():
                           except:
                             print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                             error(5)
+                            if len(argv) != 3:
+                                return
+                        if len(argv) != 3:
                             return
-                          return
                         sleep(1)
                         print(c.END+c.BLUE + 'estekhraj '+c.RED+basename(file)+ c.BLUE + ' .' + c.GREEN + '.' + c.RED + '.')
                         system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\repack_dependencies\\')
@@ -242,7 +249,8 @@ def windows():
                             except:
                               print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                               error(5)
-                            return
+                            if len(argv) != 3:
+                                return
                         if ramdisk_size.st_size != 0:
                             system('mkdir unpack')
                             chdir('unpack')
@@ -282,7 +290,8 @@ def windows():
                             except:
                               print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                               error(5)
-                              return
+                              if len(argv) != 3:
+                                return
                     else:
                         print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'11' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                         error(11)
@@ -297,7 +306,8 @@ def windows():
                                 sleep(1)
                                 print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(5)
-                                return
+                                if len(argv) != 3:
+                                    return
                         else:
                             print(c.RED+'sakht'+c.BLUE+' poshe '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                         sleep(1)
@@ -322,8 +332,10 @@ def windows():
                             except:
                               print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                               error(5)
-                              return
-                            return
+                              if len(argv) != 3:
+                                return
+                            if len(argv) != 3:
+                                return
                         if ramdisk_size.st_size != 0:
                             system("mkdir unpack")
                             chdir('unpack')
@@ -361,8 +373,10 @@ def windows():
                             except:
                               print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                               error(5)
-                              return
-                            return
+                              if len(argv) != 3:
+                                return
+                            if len(argv) != 3:
+                                return
                     else:
                         print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'10' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                         error(10)
@@ -387,7 +401,8 @@ def windows():
                                         sleep(1)
                                         print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                                 else:
                                     print(c.RED+'sakht'+c.BLUE+' poshe '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -448,7 +463,8 @@ def windows():
                                         sleep(1)
                                         print(c.BLUE+'hazf'+c.RED+' log ha '+c.BLUE+'va'+c.RED+' khoroj '+c.BLUE+'.'+c.GREEN+'.'+c.RED+'.')
                                         chdir(home)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                             elif 'recovery.img.lz4' in tar_file.getnames():
                                 if isdir(home + "\\Desktop\\CGT-Files\\2\\"):
                                     try:
@@ -459,7 +475,8 @@ def windows():
                                         sleep(1)
                                         print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                                 else:
                                     print(c.RED+'sakht'+c.BLUE+' poshe '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -485,8 +502,10 @@ def windows():
                                   except:
                                     print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                     error(5)
+                                    if len(argv) != 3:
+                                        return
+                                  if len(argv) != 3:
                                     return
-                                  return
                                 sleep(1)
                                 print(c.END+c.BLUE + 'estekhraj ' + c.RED + 'recovery.img' + c.BLUE + ' .' + c.GREEN + '.' + c.RED + '.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\repack_dependencies\\')
@@ -538,7 +557,8 @@ def windows():
                                         sleep(1)
                                         print(c.BLUE+'hazf'+c.RED+' log ha '+c.BLUE+'va'+c.RED+' khoroj '+c.BLUE+'.'+c.GREEN+'.'+c.RED+'.')
                                         chdir(home)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                             else:
                                 print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'13' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(13)
@@ -553,7 +573,8 @@ def windows():
                                         sleep(1)
                                         print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                                 else:
                                     print(c.RED+'sakht'+c.BLUE+' poshe '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -613,7 +634,8 @@ def windows():
                                         sleep(1)
                                         print(c.BLUE+'hazf'+c.RED+' log ha '+c.BLUE+'va'+c.RED+' khoroj '+c.BLUE+'.'+c.GREEN+'.'+c.RED+'.')
                                         chdir(home)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                             elif 'boot.img.lz4' in tar_file.getnames():
                                 if isdir(home + "\\Desktop\\CGT-Files\\2\\"):
                                     try:
@@ -624,7 +646,8 @@ def windows():
                                         sleep(1)
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                                 else:
                                     print(c.RED+'sakht'+c.BLUE+' poshe '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -650,8 +673,10 @@ def windows():
                                   except:
                                     print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                     error(5)
+                                    if len(argv) != 3:
+                                        return
+                                  if len(argv) != 3:
                                     return
-                                  return
                                 sleep(1)
                                 print(c.END+c.BLUE + 'estekhraj ' + c.RED + 'boot.img'+c.BLUE + ' .' + c.GREEN + '.' + c.RED + '.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\repack_dependencies\\')
@@ -703,7 +728,8 @@ def windows():
                                         sleep(1)
                                         print(c.BLUE+'hazf'+c.RED+' log ha '+c.BLUE+'va'+c.RED+' khoroj '+c.BLUE+'.'+c.GREEN+'.'+c.RED+'.')
                                         chdir(home)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                             else:
                                 print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'14' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(14)
@@ -718,11 +744,14 @@ def windows():
                 print(c.RED+'khata'+c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'1' + c.GREEN+' | '+c.BLUE+'lotfan bbinid '+c.RED+'CGT-Files/FA-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                 error(1)
     elif language == 'EN':
-        print(c.END + c.BLUE+'drag' + c.RED + ' & ' + c.BLUE + 'drop ' + c.RED + c.YELLOW+'boot'+c.RED+' / ' + c.YELLOW+'recovery '+c.RED +'['+c.GREEN+'.img' + c.RED + '|' + c.GREEN + '.img.lz4'+c.RED+'|'+c.GREEN+'.tar'+c.RED+'|'+c.GREEN+'tar.md5'+c.RED+']'+c.BLUE+' and press'+c.RED+' enter ' + c.BLUE +'key'+ c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
-        file = xinput(c.MAGENTA+'> '+c.YELLOW)
-        file = file.replace("\"", "")
-        file = file.replace("\'", "")
-        file_name, file_extension = splitext(file)
+        if len(argv) != 3:
+            print(c.END + c.BLUE+'drag' + c.RED + ' & ' + c.BLUE + 'drop ' + c.RED + c.YELLOW+'boot'+c.RED+' / ' + c.YELLOW+'recovery '+c.RED +'['+c.GREEN+'.img' + c.RED + '|' + c.GREEN + '.img.lz4'+c.RED+'|'+c.GREEN+'.tar'+c.RED+'|'+c.GREEN+'tar.md5'+c.RED+']'+c.BLUE+' and press'+c.RED+' enter ' + c.BLUE +'key'+ c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
+            file = xinput(c.MAGENTA+'> '+c.YELLOW)
+            file = file.replace("\"", "")
+            file = file.replace("\'", "")
+        elif len(argv) == 3:
+            file = argv[2]
+            file_name, file_extension = splitext(file)
         if ' ' in file:
             print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'2' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
             error(2)
@@ -740,7 +769,8 @@ def windows():
                                 sleep(1)
                                 print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(5)
-                                return
+                                if len(argv) != 3:
+                                    return
                         else:
                             print(c.RED+'making'+c.BLUE+' directory '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                         system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -762,7 +792,8 @@ def windows():
                           except:
                             print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                             error(5)
-                          return
+                          if len(argv) != 3:
+                            return
                         sleep(1)
                         print(c.END+c.BLUE + 'unpack '+c.RED+basename(file)+ c.BLUE + ' .' + c.GREEN + '.' + c.RED + '.')
                         system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\repack_dependencies\\')
@@ -784,8 +815,10 @@ def windows():
                             except:
                                 print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(5)
+                                if len(argv) != 3:
+                                    return
+                            if len(argv) != 3:
                                 return
-                            return
                         ramdisk_size = stat(home+'\\Desktop\\CGT-Files\\2\\repack_dependencies\\'+basename(file)+'-ramdisk.gz')
                         if ramdisk_size.st_size != 0:
                             system('mkdir unpack')
@@ -826,7 +859,8 @@ def windows():
                             except:
                                 print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(5)
-                                return     
+                                if len(argv) != 3:
+                                    return     
                     else:
                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'11' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                         error(11)
@@ -841,7 +875,8 @@ def windows():
                                 sleep(1)
                                 print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(5)
-                                return
+                                if len(argv) != 3:
+                                    return
                         else:
                             print(c.RED+'making'+c.BLUE+' directory '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                         sleep(1)
@@ -869,7 +904,8 @@ def windows():
                             except:
                                 print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(5)
-                            return
+                            if len(argv) != 3:
+                                return
                         ramdisk_size = stat(home+'\\Desktop\\CGT-Files\\2\\repack_dependencies\\'+basename(file)+'-ramdisk.gz')
                         if ramdisk_size.st_size != 0:
                             system("mkdir unpack")
@@ -911,7 +947,8 @@ def windows():
                             except:
                                 print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(5)
-                            return
+                            if len(argv) != 3:
+                                return
                     else:
                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'10' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                         error(10)
@@ -936,7 +973,8 @@ def windows():
                                         sleep(1)
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                                 else:
                                     print(c.RED+'making'+c.BLUE+' directory '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -993,7 +1031,8 @@ def windows():
                                     except:
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                    return
+                                    if len(argv) != 3:
+                                        return
                             elif 'recovery.img.lz4' in tar_file.getnames():
                                 if isdir(home + "\\Desktop\\CGT-Files\\2\\"):
                                     try:
@@ -1004,7 +1043,8 @@ def windows():
                                         sleep(1)
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                                 else:
                                     print(c.RED+'making'+c.BLUE+' directory '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -1032,7 +1072,8 @@ def windows():
                                   except:
                                     print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                     error(5)
-                                  return
+                                  if len(argv) != 3:
+                                    return
                                 sleep(1)
                                 print(c.END+c.BLUE + 'unpack ' + c.RED + 'recovery.img' + c.BLUE + ' .' + c.GREEN + '.' + c.RED + '.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\repack_dependencies\\')
@@ -1079,7 +1120,8 @@ def windows():
                                     except:
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                    return
+                                    if len(argv) != 3:
+                                        return
                             else:
                                 print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'13' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')   
                                 error(13)
@@ -1094,7 +1136,8 @@ def windows():
                                         sleep(1)
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                                 else:
                                     print(c.RED+'making'+c.BLUE+' directory '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -1150,7 +1193,8 @@ def windows():
                                     except:
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                    return
+                                    if len(argv) != 3:
+                                        return
                             elif 'boot.img.lz4' in tar_file.getnames():
                                 if isdir(home + "\\Desktop\\CGT-Files\\2\\"):
                                     try:
@@ -1161,7 +1205,8 @@ def windows():
                                         sleep(1)
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                                 else:
                                     print(c.RED+'making'+c.BLUE+' directory '+c.YELLOW+'2'+c.RED+' .'+c.GREEN+'.'+c.BLUE+'.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\')
@@ -1189,7 +1234,8 @@ def windows():
                                   except:
                                     print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                     error(5)
-                                  return
+                                  if len(argv) != 3:
+                                    return
                                 sleep(1)
                                 print(c.END+c.BLUE + 'unpack ' + c.RED + 'boot.img'+c.BLUE + ' .' + c.GREEN + '.' + c.RED + '.')
                                 system('mkdir '+home + '\\Desktop\\CGT-Files\\2\\repack_dependencies\\')
@@ -1236,7 +1282,8 @@ def windows():
                                     except:
                                         print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'5' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                         error(5)
-                                        return
+                                        if len(argv) != 3:
+                                            return
                             else:
                                 print(c.END + c.RED + 'error' + c.GREEN+' : ' + c.BLUE + 'code '+c.YELLOW+'14' + c.GREEN+' | '+c.BLUE+'please see '+c.RED+'CGT-Files/EN-ErrorList.png'+c.BLUE+' .'+c.GREEN+'.'+c.RED+'.')
                                 error(14)
