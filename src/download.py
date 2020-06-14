@@ -65,7 +65,7 @@ def windows():
 		_language = open(home+'\\CITY','r').read()
 	except:
 		_language = open(home+'\\.CGT\\files\\CITY','r').read()
-	CGT_VERSION = '0.1.1'
+	CGT_VERSION = '0.1.2'
 	if not isfile(home + '\\.CGT\\files\\VERSION'):
 		if _language == 'TEHRAN':
 			while True:
