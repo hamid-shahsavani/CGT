@@ -11,7 +11,7 @@ from tzlocal import get_localzone
 from shutil import move
 from re import sub
 
-version = '0.1.2'
+version = '0.1.1'
 
 home = str(Path.home())
 
